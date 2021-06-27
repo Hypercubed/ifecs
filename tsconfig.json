@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

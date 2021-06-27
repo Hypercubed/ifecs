@@ -368,7 +368,7 @@ export async function run(game: ModuleType) {
 
     console.log();
     console.log();
-    console.log(bold("JIF v0.0.0"));
+    console.log(bold("IFECS v0.0.0"));
     console.log();
 
     if (world) {

@@ -351,7 +351,7 @@ export async function run(game: ModuleType) {
       console.log("");
       player.do(line);
     } else { // dead?
-      console.log("Would you like to .restart or .quit?");
+      console.log(`Would you like to ${blue(".restart")} or ${blue(".quit")}?`);
     }
 
     console.log("");

@@ -1,4 +1,4 @@
-import { Engine, Module, ModuleDecorator, SystemType } from "../../ecs/mod.ts";
+import { Module, ModuleDecorator, SystemType } from "../../ecs/mod.ts";
 
 import { PlayerModule } from "./player.module.ts";
 

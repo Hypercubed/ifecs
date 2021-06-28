@@ -1,5 +1,7 @@
 # IFECS
 
+[![asciicast](https://asciinema.org/a/ZjlyPLikXN9y8ORx7sUjbrjvz.svg)](https://asciinema.org/a/ZjlyPLikXN9y8ORx7sUjbrjvz)
+
 ## Introduction
 
 IFECS is a framework for building and playing interactive fiction (IF) games

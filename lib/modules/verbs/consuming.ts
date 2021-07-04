@@ -1,7 +1,7 @@
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
-import { drinkable, edible } from "./tags.ts";
+import { drinkable, edible } from "./consuming.tags.ts";
 
 export function consuming(actions: ActionSystem) {
   // EAT

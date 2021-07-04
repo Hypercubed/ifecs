@@ -2,7 +2,7 @@ import { Actor } from "../../entities/actors.ts";
 import { Container, Supporter, Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
 import { YOU_CANT_SEE_IT } from "../what.module.ts";
-import { examinable } from "./tags.ts";
+import { examinable } from "./visibility.tags.ts";
 
 export function examining(actions: ActionSystem) {
   actions.add(

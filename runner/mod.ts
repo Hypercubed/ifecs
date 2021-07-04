@@ -20,7 +20,6 @@ import {
 import { OutputSystem } from "../lib/systems/output.system.ts";
 
 const PROMPT = ">> ";
-// TEXTCOLOR
 
 const textEncoder = new TextEncoder();
 
@@ -31,7 +30,7 @@ const { rows } = consoleSize();
 
 const history = new History();
 
-// Make a service so output system can hide/show prompt
+// TODO: Make a service so output system can hide/show prompt
 async function readline(): Promise<string | null> {
   let input = "";
   let lastInput = "";

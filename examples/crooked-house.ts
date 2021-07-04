@@ -145,7 +145,7 @@ export class CrookedHouseGame extends Module {
       .add(drinkable)
       .moveTo(BAR);
 
-    // TODO: onEnter
+    // TODO: enterable
     const DOOR = new Portal("Front door", /door|front door/)
       .add(locked)
       .moveTo(HALL)

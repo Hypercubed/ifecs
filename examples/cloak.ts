@@ -21,13 +21,13 @@ import { ScoreSystem } from "../lib/systems/score.system.ts";
 import { bold, Inject } from "../deps.ts";
 import { RuleSystem } from "../lib/systems/rules.system.ts";
 import {
-  cannotGo,
   darkness,
   examinable,
   fixed,
   read,
   readable,
   scenery,
+  unenterable,
   worn,
 } from "../lib/modules/verbs/tags.ts";
 
@@ -153,7 +153,7 @@ function cloakGame(world: Engine) {
     `You've only just arrived, and besides, the weather outside seems to be getting worse.`,
   )
     .add(
-      cannotGo,
+      unenterable,
       `You've only just arrived, and besides, the weather outside seems to be getting worse.`,
     );
 

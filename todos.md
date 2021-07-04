@@ -16,7 +16,7 @@
   - `{ provide: OutputSystem, useClass: TestOutputSystem }`
   - `{ provide: GravitySystem, useValue: new GravitySystem(10) }`
   - `{ provide: SomeService, useFactory: () => { ... } }`
-- Decorators vs Classes
+- Naming Decorators vs Classes
   - `@ModuleDecorator class A extends Module {}`
 - Error handling
   - Unique entity names?
@@ -25,7 +25,7 @@
 - Systems (Rules/Triggers) DSL / Events
   - rules system to use queries?
   - trigger actions on entities when some conditions are met?
-  - onEnter/onExit events
+  - enterable/onExit events
 
 # Std Lib
 

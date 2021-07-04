@@ -10,7 +10,7 @@ import { Direction } from "../entities/directions.ts";
 import { Portal } from "../entities/portals.ts";
 import { Inject } from "../../deps.ts";
 import { YOU_CANT_SEE_IT } from "./what.module.ts";
-import { cannotGo, closed, onEnter, visited } from "./verbs/tags.ts";
+import { closed, enterable, unenterable, visited } from "./verbs/tags.ts";
 
 @ModuleDecorator({
   requires: [
@@ -49,13 +49,13 @@ export class DirectionsModule extends Module {
           if (location.has(closed)) return `The ${location} is closed.`;
           location = location.getOtherSide(you.container!);
         }
-        if (location.has(cannotGo)) {
-          return location.get(cannotGo) ||
+        if (location.has(unenterable)) {
+          return location.get(unenterable) ||
             `${you} will have to go back the way you came.`;
         }
         you.moveTo(location);
-        if (location.has(onEnter)) {
-          you.say(location.get(onEnter)!);
+        if (location.has(enterable)) {
+          you.say(location.get(enterable)!);
         }
         location.add(visited);
         return you.look();

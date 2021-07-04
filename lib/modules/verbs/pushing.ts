@@ -1,7 +1,7 @@
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
-import { pushable, pushed } from "./tags.ts";
+import { pushable, pushed } from "./portable.tags.ts";
 
 export function pushing(actions: ActionSystem) {
   actions.add(

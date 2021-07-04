@@ -1,7 +1,7 @@
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
-import { closable, closed, locked, openable } from "./tags.ts";
+import { closable, closed, locked, openable } from "./opening.tags.ts";
 
 export function opening(actions: ActionSystem) {
   // OPEN

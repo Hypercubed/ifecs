@@ -21,6 +21,7 @@ import { Portal } from "../lib/entities/portals.ts";
 import {
   closable,
   closed,
+  enterable,
   examinable,
   fixed,
   hidden,
@@ -29,7 +30,6 @@ import {
   lookable,
   offable,
   onable,
-  onEnter,
   openable,
   pushable,
   readable,
@@ -132,8 +132,8 @@ function zorkGame(world: Engine) {
     "Celler",
     `You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.`,
   )
-    .add(onEnter, () => {
-      celler.remove(onEnter);
+    .add(enterable, () => {
+      celler.remove(enterable);
       return `The trap door crashes shut, and you hear someone barring it.`;
     });
 

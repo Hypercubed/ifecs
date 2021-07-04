@@ -1,7 +1,7 @@
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
-import { lockable, locked } from "./tags.ts";
+import { lockable, locked } from "./opening.tags.ts";
 
 export function locking(actions: ActionSystem) {
   // UNLOCK

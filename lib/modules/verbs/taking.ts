@@ -2,7 +2,7 @@ import { ActionSystem, syntax } from "../../systems/action.system.ts";
 import { DONT_KNOW_HOW } from "../what.module.ts";
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
-import { fixed, portable } from "./tags.ts";
+import { fixed, portable } from "./portable.tags.ts";
 
 export function taking(actions: ActionSystem) {
   actions.add(

@@ -1,7 +1,7 @@
 import { Actor } from "../../entities/actors.ts";
 import { Thing } from "../../entities/things.ts";
 import { ActionSystem, syntax } from "../../systems/action.system.ts";
-import { droppable } from "./tags.ts";
+import { droppable } from "./portable.tags.ts";
 
 export function dropping(actions: ActionSystem) {
   // DROP

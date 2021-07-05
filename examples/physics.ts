@@ -1,4 +1,7 @@
 #!/usr/bin/env -S deno run --unstable --allow-all
+import { Inject, Service } from "../deps.ts";
+import { bold, dim, rgb8, tty } from "../runner/deps.ts";
+
 import {
   Engine,
   IterativeSystem,
@@ -23,17 +26,8 @@ import {
   TimeDataSystem,
   velocity,
   VelocitySystem,
-} from "../lib/systems/kenetics.ts";
+} from "../lib/systems/kinetics.ts";
 
-import {
-  bold,
-  dim,
-  Inject,
-  rgb8,
-  Service,
-  tty,
-  writeAllSync,
-} from "../deps.ts";
 import { LazyInitialize } from "../utils/decorators.ts";
 import { FPSDisplay } from "../lib/systems/fps.system.ts";
 
@@ -55,7 +49,6 @@ const TEXT_HEIGHT = ARR.length;
 
 const { stdout } = Deno;
 const { columns, rows } = Deno.consoleSize(stdout.rid);
-const { encode } = new TextEncoder();
 
 const MIN_WIDTH = 0;
 const MIN_HEIGHT = 2;
@@ -126,12 +119,11 @@ class RenderSystem extends System {
     const ss = arr.map((ss) => ss.join("")).join(
       "\n" + tty.ESC + tty.CLEAR_RIGHT,
     );
-    const o = encode(ss);
 
     tty.hideCursorSync();
     tty.writeSync(tty.SAVE, Deno.stdout);
     tty.goToSync(MIN_WIDTH, MIN_HEIGHT);
-    writeAllSync(stdout, o);
+    tty.writeSync(ss, stdout);
     tty.writeSync(tty.RESTORE, Deno.stdout);
     tty.showCursorSync();
 

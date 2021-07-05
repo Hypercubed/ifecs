@@ -156,9 +156,22 @@ export class Engine {
     }
   }
 
-  include<R extends Module>(M: ModuleType<R>): this {
+  include<R extends System>(M: SystemType<R>): this;
+  include<R extends Module>(M: ModuleType<R>): this;
+  include(M: unknown): this {
     if (this._initialized) throw `Engine already initialized`;
-    this.includeModule(M);
+    if (ExtendsClass(M, System)) {
+      this.includeSystem(M);
+    }
+    if (ExtendsClass(M, Module)) {
+      this.includeModule(M);
+    }
+    return this;
+  }
+
+  protected includeSystem(S: SystemType) {
+    this.injector.addSingleton(S);
+    this._toInitSystems.add(S);
     return this;
   }
 

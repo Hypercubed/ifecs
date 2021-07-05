@@ -1,7 +1,6 @@
 import { Inject } from "../../deps.ts";
 import { Module, ModuleDecorator } from "../../ecs/mod.ts";
 import { Actor } from "../entities/actors.ts";
-import { Thing } from "../entities/things.ts";
 import { ActionSystem, syntax } from "../systems/action.system.ts";
 import { IFModule } from "./if.module.ts";
 import { WhatModule } from "./what.module.ts";
@@ -17,48 +16,50 @@ export class StubModule extends Module {
   private actions!: ActionSystem;
 
   onInit() {
-    this.actions.add(
+    const actionSystem = this.actions;
+
+    actionSystem.add(
       syntax`use *?`,
       (you: Actor) => `${you} need to be a little more specific.`,
     );
 
-    this.actions.add(
+    actionSystem.add(
       syntax`smell *?`,
       (you: Actor) => `${you} don't smell anything unusual.`,
     );
 
-    this.actions.add("wave", (you: Actor) => `${you} wave, feeling foolish.`);
-    this.actions.add(
+    actionSystem.add("wave", (you: Actor) => `${you} wave, feeling foolish.`);
+    actionSystem.add(
       "jump",
       (you: Actor) => `${you} jump on the spot, accomplishing little.`,
     );
-    this.actions.add(
+    actionSystem.add(
       "listen *?",
       (you: Actor) => `${you} hear nothing unexpected.`,
     );
-    this.actions.add(
+    actionSystem.add(
       "undo",
       (you: Actor) => `${you} can't undo what hasn't been done!`,
     );
-    this.actions.add("think", `What a good idea.`);
+    actionSystem.add("think", `What a good idea.`);
 
-    this.actions.add("(wait|z)", `Nothing happens.`);
-    this.actions.add(/sleep/, `Not now--there's work to be done.`);
+    actionSystem.add("(wait|z)", `Nothing happens.`);
+    actionSystem.add(/sleep/, `Not now--there's work to be done.`);
 
-    this.actions.add("(say|yell|shout) *", `There is no reply.`);
+    actionSystem.add("(say|yell|shout) *", `There is no reply.`);
 
-    this.actions.add(
+    actionSystem.add(
       syntax`throw *?`,
       (you: Actor) => `${you} decide that's not a great idea.`,
     );
-    this.actions.add(`climb *?`, `Not here; not now.`);
-    this.actions.add("kiss *?", (you: Actor) => `${you} need to get out more.`);
-    this.actions.add("swim *?", `Not here.`);
-    this.actions.add(
+    actionSystem.add(`climb *?`, `Not here; not now.`);
+    actionSystem.add("kiss *?", (you: Actor) => `${you} need to get out more.`);
+    actionSystem.add("swim *?", `Not here.`);
+    actionSystem.add(
       "touch *?",
       `That probably isn't the best use of your time.`,
     );
-    this.actions.add("burn *?", `Don't play with fire.`);
-    this.actions.add("dig *?", `That won't accomplish anything.`);
+    actionSystem.add("burn *?", `Don't play with fire.`);
+    actionSystem.add("dig *?", `That won't accomplish anything.`);
   }
 }

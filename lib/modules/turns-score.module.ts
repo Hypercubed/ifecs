@@ -5,7 +5,7 @@ import { PlayerModule } from "./player.module.ts";
 import { Actor, Player } from "../entities/actors.ts";
 import { score, ScoreSystem } from "../systems/score.system.ts";
 import { turns, TurnsSystem } from "../systems/turns.system.ts";
-import { ScoreBoardSystem } from "../systems/score-board.system.ts";
+// import { ScoreBoardSystem } from "../systems/score-board.system.ts";
 import { ActionSystem } from "../systems/action.system.ts";
 import { IFModule } from "./if.module.ts";
 import { Inject } from "../../deps.ts";
@@ -15,9 +15,9 @@ const systems: SystemType[] = [
   ScoreSystem,
 ];
 
-if (!("__test_env__" in window)) {
-  systems.push(ScoreBoardSystem);
-}
+// if (!("__test_env__" in window)) {
+//   systems.push(ScoreBoardSystem);
+// }
 
 @ModuleDecorator({
   requires: [

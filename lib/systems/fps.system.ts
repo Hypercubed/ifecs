@@ -1,9 +1,10 @@
-import { Service, tty } from "../../deps.ts";
+import { Service } from "../../deps.ts";
+import { tty } from "../../runner/deps.ts";
 
 import { System } from "../../ecs/systems.ts";
 import { consoleSize } from "../../utils/console.ts";
 import { LazyInitialize } from "../../utils/decorators.ts";
-import { TimeData, timeData } from "./kenetics.ts";
+import { TimeData, timeData } from "./kinetics.ts";
 
 @Service()
 export class FPSDisplay extends System {

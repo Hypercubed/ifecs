@@ -1,6 +1,5 @@
-import { outputQueue } from "../systems/output.system.ts";
 import { actionQueue } from "../systems/action.system.ts";
-import { bold, nlp, Service } from "../../deps.ts";
+import { nlp, Service } from "../../deps.ts";
 
 import { Composite, Thing } from "./things.ts";
 import { Location } from "./locations.ts";
@@ -14,6 +13,7 @@ import {
   lookable,
   scenery,
 } from "../modules/verbs/tags.ts";
+import { outputQueue } from "../components/output-queue.component.ts";
 
 export class Actor extends Composite {
   get container(): Location | null {
@@ -111,7 +111,7 @@ export class Actor extends Composite {
         String(this).toLowerCase()
       } can't see a thing.`;
     }
-    let desc = `${bold(`-= ${room.get(heading)} =-`)}\n${room.get(lookable)}`;
+    let desc = `${`-= ${room.get(heading)} =-`}\n${room.get(lookable)}`;
     room.getAll(Thing).filter((t) => t !== this).forEach(
       (thing: Thing) => {
         if (thing.has(hidden) || thing.has(scenery)) return;

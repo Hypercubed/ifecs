@@ -9,7 +9,7 @@ export type TagValue<
 > = T | JSONValueFunction<E, T>;
 
 /**
- * A tag is the simiplis form of component.  Containing only serializable data or functions that return serializable data
+ * A tag is the simplest form of component.  Containing only serializable data or functions that return serializable data
  */
 export class Tag<T extends JSONValue = JSONValue> {
   public readonly id = tagId++;

@@ -12,7 +12,7 @@ export const velocity = new Tag("springCenter", { x: 0, y: 0 });
 export const acceleration = new Tag("springCenter", { x: 0, y: 0 });
 export const mass = new Tag<number>("physics/mass", 1);
 
-export const timeData = new Tag("phyics/time-data", {
+export const timeData = new Tag("physics/time-data", {
   start: 0,
   last: 0,
   tick: -1,

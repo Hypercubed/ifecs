@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --unstable --allow-all
 
-import { bold, Inject } from "../deps.ts";
+import { Inject } from "../deps.ts";
 import { Module, ModuleDecorator } from "../ecs/mod.ts";
 import { Actor, Player } from "../lib/entities/actors.ts";
 import { Container, Supporter, Thing } from "../lib/entities/things.ts";
@@ -256,7 +256,7 @@ SEE HOW YOUR GRANDCHILDREN WILL LIVE!
 Q. TEAL, ARCHITECT`,
     );
     this.player.say();
-    this.player.say(bold("—And He Built a Crooked House—"));
+    this.player.say("—And He Built a Crooked House—");
     this.player.say();
     this.player.say(this.player.look());
   }

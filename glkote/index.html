@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GlkOte: Extremely Minimal</title>
+
+  <link rel="stylesheet" href="https://eblong.com/zarf/glk/glkote/glkote.css" type="text/css">
+
+  <style type="text/css">
+    body {
+      margin: 0px;
+      height: 100%;
+    }
+
+    #gameport {
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background: #CCAA88;
+      margin: 0px;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+  <script src="https://eblong.com/zarf/glk/glkote/glkote.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="gameport">
+    <div id="windowport">
+      <noscript>
+        <hr>
+        <p>You'll need to turn on Javascript in your web browser to play this game.</p>
+        <hr>
+      </noscript>
+    </div>
+    <div id="loadingpane">
+      <img src="https://eblong.com/zarf/glk/glkote/waiting.gif" alt="LOADING"><br>
+      <em>&nbsp;&nbsp;&nbsp;Loading...</em>
+    </div>
+    <div id="errorpane" style="display:none;">
+      <div id="errorcontent">...</div>
+    </div>
+  </div>
+
+  <script src="./ifecs.js" type="module"></script>
+</body>
+
+</html>

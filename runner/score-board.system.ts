@@ -1,10 +1,12 @@
-import { Inject, inverse, Service, tty } from "../../deps.ts";
-import { System } from "../../ecs/mod.ts";
-import { consoleSize } from "../../utils/console.ts";
-import { Player } from "../entities/actors.ts";
+import { Inject, Service } from "../deps.ts";
+import { inverse, tty } from "./deps.ts";
 
-import { score } from "./score.system.ts";
-import { turns } from "./turns.system.ts";
+import { System } from "../ecs/mod.ts";
+import { consoleSize } from "../utils/console.ts";
+
+import { Player } from "../lib/entities/actors.ts";
+import { score } from "../lib/systems/score.system.ts";
+import { turns } from "../lib/systems/turns.system.ts";
 
 @Service()
 export class ScoreBoardSystem extends System {

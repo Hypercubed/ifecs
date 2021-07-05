@@ -12,7 +12,7 @@ import { Actor, Player } from "../lib/entities/actors.ts";
 import { Location } from "../lib/entities/locations.ts";
 import { Direction } from "../lib/entities/directions.ts";
 
-import { bold, Inject } from "../deps.ts";
+import { Inject } from "../deps.ts";
 import { prng } from "../utils/random.ts";
 import { WhatModule } from "../lib/modules/what.module.ts";
 
@@ -191,14 +191,14 @@ function wumpusGame(world: Engine) {
     if (!currentLocation) {
       return `You see nothing. You might be dead. (try .restart)`;
     }
-    player.say(`You are in ${bold(currentLocation.description)}.`);
+    player.say(`You are in ${currentLocation.description}.`);
     const exits = currentLocation.exits.map(([_, l]) => l) as Location[];
     player.say(getThreats(exits).join("\n"));
     return `Exits go to: ${exits.join(", ")}`;
   };
 
   const enterLocation = (newLocation: Location) => {
-    player.say(`Entering ${bold(newLocation.description)}...\n`);
+    player.say(`Entering ${newLocation.description}...\n`);
 
     switch (getThreat(newLocation)) {
       case pit:
@@ -221,7 +221,7 @@ function wumpusGame(world: Engine) {
   const shootIntoLocation = (intoLocation: Location) => {
     if (arrows.length < 1) return arrowMsg();
 
-    player.say(`Shooting an arrow into ${bold(intoLocation.description)}...\n`);
+    player.say(`Shooting an arrow into ${intoLocation.description}...\n`);
 
     const spentArrow = arrows.pop();
     spentArrow!.moveTo(null);

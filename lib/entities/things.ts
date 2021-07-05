@@ -2,15 +2,14 @@ import {
   Component,
   ComponentType,
   ContainedComponent,
-  Entity,
   EntityType,
   Query,
   SetComponent,
   Tag,
   TagValue,
 } from "../../ecs/mod.ts";
-import { bold, nlp } from "../../deps.ts";
-import { ExtendsClass, JSONValue } from "../../utils/types.ts";
+import { nlp } from "../../deps.ts";
+import { ExtendsClass } from "../../utils/types.ts";
 import { Actor } from "./actors.ts";
 
 import { Token } from "./tokens.ts";
@@ -105,7 +104,7 @@ export class Thing extends Token {
   }
 
   toString(): string {
-    return bold(this.name);
+    return this.name;
   }
 }
 

@@ -18,7 +18,7 @@ import { Location } from "../lib/entities/locations.ts";
 import { Supporter, Thing } from "../lib/entities/things.ts";
 import { TurnsSystem } from "../lib/systems/turns.system.ts";
 import { ScoreSystem } from "../lib/systems/score.system.ts";
-import { bold, Inject } from "../deps.ts";
+import { Inject } from "../deps.ts";
 import { RuleSystem } from "../lib/systems/rules.system.ts";
 import {
   darkness,
@@ -47,7 +47,9 @@ export class CloakGame extends Module {
   protected player!: Player;
 
   onInit() {
-    return cloakGame(this.engine);
+    const engine = this.engine || window.currentEngine;
+
+    return cloakGame(engine);
   }
 
   onStart() {
@@ -55,7 +57,7 @@ export class CloakGame extends Module {
       `Hurrying through the rainswept November night, you're glad to see the bright lights of the Opera House. It's surprising that there aren't more people about but, hey, what do you expect in a cheap demo game...?`,
     );
     this.player.say();
-    this.player.say(bold("Cloak of Darkness"));
+    this.player.say("Cloak of Darkness");
     this.player.say("A basic IF demonstration.");
     this.player.say();
     this.player.say(this.player.look());

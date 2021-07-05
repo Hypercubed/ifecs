@@ -1,5 +1,4 @@
-import { blue, bold, green, tty } from "../deps.ts";
-import { readKeypress } from "./deps.ts";
+import { blue, bold, green, readKeypress, tty } from "./deps.ts";
 
 import { Engine, ModuleType } from "../ecs/mod.ts";
 
@@ -17,7 +16,8 @@ import {
   printMap,
   printTree,
 } from "./debug-tools.ts";
-import { OutputSystem } from "../lib/systems/output.system.ts";
+import { OutputSystem } from "./output.system.ts";
+import { ScoreBoardSystem } from "./score-board.system.ts";
 
 const PROMPT = ">> ";
 
@@ -378,12 +378,13 @@ export async function run(game: ModuleType) {
     }
 
     world = new Engine()
+      .include(OutputSystem)
+      .include(ScoreBoardSystem)
       .include(game)
       .initialize();
 
     player = world.get(Player)!;
     output = world.get(OutputSystem)!;
-
     output.slowTyping = slowTyping;
 
     world.start();

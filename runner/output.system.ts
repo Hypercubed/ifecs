@@ -1,9 +1,11 @@
-import { inverse, Service, tty, wrap } from "../../deps.ts";
-import { Entity, IterativeSystem, Tag } from "../../ecs/mod.ts";
-import { consoleSize } from "../../utils/console.ts";
-import { Actor } from "../entities/actors.ts";
+import { Service, wrap } from "../deps.ts";
+import { inverse, tty } from "./deps.ts";
 
-export const outputQueue = new Tag<string[][]>("ifecs-output", []);
+import { Entity, IterativeSystem } from "../ecs/mod.ts";
+import { consoleSize } from "../utils/console.ts";
+
+import { Actor } from "../lib/entities/actors.ts";
+import { outputQueue } from "../lib/components/output-queue.component.ts";
 
 @Service()
 export class OutputSystem extends IterativeSystem {

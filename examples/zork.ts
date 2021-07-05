@@ -7,7 +7,7 @@
 import { Engine, Module, ModuleDecorator } from "../ecs/mod.ts";
 import { ActionSystem, syntax } from "../lib/systems/action.system.ts";
 
-import { bold, Inject } from "../deps.ts";
+import { Inject } from "../deps.ts";
 
 import { DirectionsModule } from "../lib/modules/directions.module.ts";
 
@@ -64,7 +64,7 @@ export class ZorkGame extends Module {
   onStart() {
     const player = this.engine.get(Player)!;
 
-    player.say(bold("ZORK"));
+    player.say("ZORK");
     player.say();
     player.say(player.look());
   }

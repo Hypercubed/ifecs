@@ -1,4 +1,4 @@
-import { bold, cyan, italic, red } from "../deps.ts";
+import { bold, cyan, italic, red } from "./deps.ts";
 import { Entity } from "../ecs/mod.ts";
 import { Location } from "../lib/entities/locations.ts";
 import { Thing } from "../lib/entities/things.ts";
